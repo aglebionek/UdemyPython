@@ -27,7 +27,7 @@ print(l.slope())
 #%%
 class Cylinder():
     from math import pi
-    def __init__(self, height=1, radius=1) -> None:
+    def __init__(self, height: float=1, radius: float=1) -> None:
         '''
         A cylinder class, takes height and radius as parameters with 1 as their default values.
         '''
@@ -44,7 +44,7 @@ class Cylinder():
         '''
         Returns the surface area of the cylinder.
         '''
-        return 2*Cylinder.pi*self.radius*self.height+2*Cylinder.pi*(self.radius**2)
+        return 2*Cylinder.pi*self.radius*self.height + 2*Cylinder.pi*(self.radius**2)
 
 c = Cylinder(2, 3)
 print(c.volume())

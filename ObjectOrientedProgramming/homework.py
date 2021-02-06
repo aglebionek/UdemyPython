@@ -1,7 +1,4 @@
 #%%
-from math import pi
-
-
 class Line():
     def __init__(self, coordinates1: tuple, coordinates2: tuple) -> None:
         '''

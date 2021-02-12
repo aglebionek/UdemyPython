@@ -4,17 +4,17 @@ class Card():
     SUITS = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
     RANKS = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 
-    def __init__(self, suit, rank) -> None:
+    def __init__(self, suit: str, rank: str) -> None:
         self.suit = suit
         self.rank = rank
 
     def __str__(self) -> str: return self.rank + " of " + self.suit
 
-    def __gt__(self, card) -> bool:
+    def __gt__(self, card: 'Card') -> bool:
         return Card._VALUES[self.rank] > Card._VALUES[card.rank]
 
-    def __eq__(self, card) -> bool:
+    def __eq__(self, card: 'Card') -> bool:
         return Card._VALUES[self.rank] == Card._VALUES[card.rank]
 
-    def __lt__(self, card) -> bool:
+    def __lt__(self, card: 'Card') -> bool:
         return Card._VALUES[self.rank] < Card._VALUES[card.rank]

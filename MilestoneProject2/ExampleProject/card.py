@@ -5,6 +5,9 @@ class Card():
     RANKS = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 
     def __init__(self, suit: str, rank: str) -> None:
+        '''
+        A class that implements a card class, stores information about suit, rank, and allows rank-based comparison of the cards.
+        '''
         self.suit = suit
         self.rank = rank
 

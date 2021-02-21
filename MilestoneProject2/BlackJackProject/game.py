@@ -1,3 +1,9 @@
+# this is the codealong code, altho I don't like the code and there are some bugs:
+# 1. if you play again your chips reset:
+#    a method to empty hand would need to be created and the hands need to be instanciated only once
+# 2. the question for playing again doesn't check if for incorrect answer
+# 3. methods and variables names are kinda meh
+
 from chips import Chips
 from deck import Deck
 from hand import Hand
@@ -30,9 +36,8 @@ def hit_or_stand(deck: Deck, hand: Hand) -> None:
 
 def show_some(player: Hand, dealer: Hand) -> None:
     print("Dealer's hand: ")
-    print('one card hidden')
     print(dealer.cards[1])
-    print('\n')
+    print('one card hidden')
     print("Player's hand: ")
     for card in player.cards:
         print(card)
@@ -41,7 +46,6 @@ def show_all(player, dealer):
     print("Dealer's hand: ")
     for card in dealer.cards:
         print(card)
-    print('\n')
     print("Player's hand: ")
     for card in player.cards:
         print(card)
@@ -67,7 +71,7 @@ def push(player: Hand, dealer: Hand):
 
 while True:
     print('Welcome to Blackjack')
-
+    playing = True
     deck = Deck()
     deck.shuffle()
 
@@ -84,4 +88,29 @@ while True:
     show_some(player, dealer)
 
     while playing:
-        pass
+        hit_or_stand(deck, player)
+        show_some(player, dealer)
+        
+        if player.value > 21:
+            player_busts(player, dealer, player_chips)
+            break
+
+    if player.value <= 21:
+        while dealer.value < 17: hit(deck, dealer)
+        
+        show_all(player, dealer)
+
+        if dealer.value > 21: dealer_busts(player, dealer, player_chips)
+        elif dealer.value > player.value: dealer_wins(player, dealer, player_chips)
+        elif dealer.value < player.value: player_wins(player, dealer, player_chips)
+        else: push(player, dealer)
+    
+    print(f'\n Player total chips are at: {player_chips.total}')
+    
+    new_game = input('Would you like to play another hand? (y/n)')
+    if new_game[0].lower() == 'y':
+        playing = True
+        continue
+    else:
+        print('Thanks for playin!')
+        break

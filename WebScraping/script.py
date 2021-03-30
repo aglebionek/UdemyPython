@@ -20,3 +20,9 @@ image_link = requests.get(f"https:{image['src']}") # link to the first image tha
 f = open(f"image.jpg", 'wb') # save the image to a file called image.jpg
 f.write(image_link.content)
 f.close()
+
+#GOAL: grab title of every book with 2 star rating
+base_url = "http://books.toscrape.com/catalogue/page-{}.html"
+res = requests.get(base_url.format(1))
+soup = bs4.BeautifulSoup(res.text, "lxml")
+products = soup.select(".product_pod")

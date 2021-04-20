@@ -42,4 +42,4 @@ w2 = widgets.IntSlider()
 display(w1, w2) # we can dipslay multiple widgets at once
 link = widgets.jslink((w1, 'value'), (w2, 'value')) # we can also link them together via a key. to check keys, type widget.keys
 
-# %%
+# you can change widgets style and layout with css-like properties

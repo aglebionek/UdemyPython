@@ -31,4 +31,15 @@ def f(a, b):
 
 w = interactive(f, a=10, b=20)
 display(w)
+
+# %%
+import ipywidgets as widgets
+from IPython.display import display
+
+w1 = widgets.IntText()
+w2 = widgets.IntSlider()
+
+display(w1, w2) # we can dipslay multiple widgets at once
+link = widgets.jslink((w1, 'value'), (w2, 'value')) # we can also link them together via a key. to check keys, type widget.keys
+
 # %%

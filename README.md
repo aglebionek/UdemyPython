@@ -3,3 +3,9 @@
 <h2>Course includes</h2>
 <p>Python basics</p>
 <p>OOP</p>
+<p>Generators, comprehensions, decorators, exception handling</p>
+<p>Advanced python modules such as Collections, Datetime, math and random, os, re, time and zipfile</p>
+<p>Working with images, PDF and CSV files</p>
+<p>Sending and reading emails</p>
+<p>Websraping</p>
+<p>Some Jupyter Notebook gui extensions</p>
